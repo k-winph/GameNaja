@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://d2gsyjplcika7"]
+[gd_scene load_steps=23 format=3 uid="uid://d2gsyjplcika7"]
 
 [ext_resource type="Texture2D" uid="uid://bdn1jnwcdvtte" path="res://assets/Worldasset_zone0_city.png" id="1_2s41d"]
+[ext_resource type="Texture2D" uid="uid://cwqsn1foop2wl" path="res://assets/background_zone0_city.png" id="1_vmkkn"]
 [ext_resource type="Script" path="res://player.gd" id="2_7d88w"]
 [ext_resource type="Texture2D" uid="uid://cpbtqtimeobtd" path="res://assets/mc basic_move.png" id="3_evs3h"]
 
@@ -335,6 +336,13 @@ height = 18.0
 [node name="Node2D" type="Node2D"]
 
 [node name="map" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="map"]
+offset_left = -180.0
+offset_top = 1.0
+offset_right = 780.0
+offset_bottom = 362.0
+texture = ExtResource("1_vmkkn")
 
 [node name="TileMap" type="TileMap" parent="map"]
 tile_set = SubResource("TileSet_hij7j")
