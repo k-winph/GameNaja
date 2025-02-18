@@ -32,3 +32,4 @@ func _physics_process(delta: float) -> void:
 		get_node("AnimatedSprite2D").play("Idle")
 
 	move_and_slide()
+	
