@@ -5,8 +5,8 @@ extends CharacterBody2D
 
 var CanMove = false
 var ProgressRatio:float = 0.0
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 150.0
+const JUMP_VELOCITY = -250.0
 
 func _process(delta):
 	if path_follow_2d != null:
