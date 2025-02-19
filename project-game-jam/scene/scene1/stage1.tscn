@@ -469,7 +469,7 @@ animations = [{
 
 [sub_resource type="Curve2D" id="Curve2D_r4nex"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 130, 126, 0, 0, 0, 0, 130, 204)
+"points": PackedVector2Array(0, 0, 0, 0, 130, 126, 0, 0, 0, 0, 130, 205)
 }
 point_count = 2
 

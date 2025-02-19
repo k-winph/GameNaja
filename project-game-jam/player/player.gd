@@ -19,7 +19,7 @@ func wait_until_cutscene_complete():
 	if ProgressRatio > 0.88:
 		await get_tree().create_timer(0.5).timeout
 		player.visible = true
-		await get_tree().create_timer(0.25).timeout
+		await get_tree().create_timer(0.5).timeout
 		CanMove = true
 	else:
 		CanMove = false
