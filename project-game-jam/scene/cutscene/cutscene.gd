@@ -16,11 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	timer += delta
-	if timer >= typing_delay and current_index < full_text.length():
-		text.text += full_text[current_index]  # เพิ่มตัวอักษร
-		current_index += 1  # เพิ่มดัชนี
-		timer = 0  # รีเซ็ตตัวจับเวลา
+	_start()
 
 func _start():
 	var full_text = text.text

@@ -162,9 +162,8 @@ script = ExtResource("1_bo0fn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pasb8")
-animation = &"Run"
+animation = &"StepBack"
 autoplay = "Idle"
-frame_progress = 0.81229
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
