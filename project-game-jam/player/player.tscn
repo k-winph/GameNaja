@@ -162,7 +162,7 @@ script = ExtResource("1_bo0fn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pasb8")
-animation = &"Run"
+animation = &"Idle"
 autoplay = "Idle"
 speed_scale = 2.0
 

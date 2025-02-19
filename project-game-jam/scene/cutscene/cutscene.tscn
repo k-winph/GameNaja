@@ -441,17 +441,17 @@ shape = SubResource("SegmentShape2D_vv358")
 position = Vector2(433, 0)
 shape = SubResource("SegmentShape2D_vv358")
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="PathWalk" type="Path2D" parent="."]
 position = Vector2(265, -38)
 curve = SubResource("Curve2D_6prrq")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="PathWalk"]
 position = Vector2(-32, 214)
 rotates = false
 loop = false
 script = ExtResource("4_ov78q")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathWalk/PathFollow2D"]
 sprite_frames = SubResource("SpriteFrames_ppu4g")
 animation = &"Idle"
 autoplay = "Idle"
