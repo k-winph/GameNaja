@@ -1,14 +1,15 @@
 extends PathFollow2D
 
-@onready var path_2d: Path2D = $".."
+@onready var path_follow_2d: PathFollow2D = $"."
+@onready var path_car_crash: Path2D = $".."
 
 var ProgressRatio = 0.0
 var speed = 5
 var can_move = false
 
 func _ready():
-	await get_tree().create_timer(6).timeout
-	get_node("AnimatedSprite2D").play("Plant")
+	await get_tree().create_timer(7).timeout
+	get_node("AnimatedSprite2D").play("car")
 	can_move = true
 
 func setProgressRatio():
@@ -20,5 +21,5 @@ func _process(delta):
 		progress_ratio += delta * speed
 		if progress_ratio < 1:
 			ProgressRatio = progress_ratio
-			get_node("AnimatedSprite2D").play("Plant")
+			get_node("AnimatedSprite2D").play("car")
 		

@@ -1,12 +1,17 @@
-[gd_scene load_steps=36 format=3 uid="uid://d2gsyjplcika7"]
+[gd_scene load_steps=44 format=3 uid="uid://d2gsyjplcika7"]
 
 [ext_resource type="Texture2D" uid="uid://45qadg8i10pa" path="res://world_assets/backgroud/background.png" id="1_d606o"]
+[ext_resource type="Script" path="res://scene/scene1/stage1_text.gd" id="1_v8oy5"]
 [ext_resource type="Texture2D" uid="uid://bvnisg451suu1" path="res://world_assets/World_assets.png" id="2_25aye"]
 [ext_resource type="Texture2D" uid="uid://defdekq82r484" path="res://world_assets/World_assets_2.png" id="2_oxsej"]
 [ext_resource type="PackedScene" uid="uid://djw8v30rdnei4" path="res://player/player.tscn" id="3_mpa8e"]
 [ext_resource type="Script" path="res://scene/scene1/stage1_cutscene_walk.gd" id="4_06q5c"]
 [ext_resource type="Texture2D" uid="uid://bqkkexjgw2bjs" path="res://player/player_assets/player_sprite_assets.png" id="5_ityf0"]
 [ext_resource type="Script" path="res://scene/scene1/plant_fall.gd" id="7_607hh"]
+[ext_resource type="FontFile" uid="uid://bthw16h3u33di" path="res://assets/Born2bSportyFS.otf" id="9_37owa"]
+[ext_resource type="AudioStream" uid="uid://b46p2aivjgf03" path="res://assets/sound/medium-text-blip-14855.mp3" id="9_agmr4"]
+[ext_resource type="Script" path="res://scene/scene1/car_crash.gd" id="11_stco5"]
+[ext_resource type="Texture2D" uid="uid://bdn1jnwcdvtte" path="res://assets/Worldasset_zone0_city.png" id="12_gxnh2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6u7x8"]
 texture = ExtResource("2_oxsej")
@@ -488,7 +493,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve2D" id="Curve2D_cex4w"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 494, 169, 0, 0, 0, 0, 219, 169)
+}
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rqwu"]
+atlas = ExtResource("12_gxnh2")
+region = Rect2(0, 256, 120, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dtafc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rqwu")
+}],
+"loop": true,
+"name": &"car",
+"speed": 5.0
+}]
+
 [node name="stage1" type="Node2D"]
+script = ExtResource("1_v8oy5")
 
 [node name="map" type="Node2D" parent="."]
 
@@ -546,3 +573,28 @@ rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_luopj")
 animation = &"Plant"
 autoplay = "Plant"
+
+[node name="text" type="Label" parent="."]
+offset_left = 77.0
+offset_top = 217.0
+offset_right = 117.0
+offset_bottom = 240.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("9_37owa")
+
+[node name="text_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_agmr4")
+
+[node name="PathCarCrash" type="Path2D" parent="."]
+curve = SubResource("Curve2D_cex4w")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathCarCrash"]
+position = Vector2(494, 169)
+rotation = 3.14159
+loop = false
+script = ExtResource("11_stco5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathCarCrash/PathFollow2D"]
+rotation = -3.14159
+sprite_frames = SubResource("SpriteFrames_dtafc")
+animation = &"car"

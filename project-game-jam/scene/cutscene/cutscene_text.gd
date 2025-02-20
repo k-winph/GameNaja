@@ -10,7 +10,7 @@ func _ready():
 
 func _start():
 	text.text = "" 
-	await show_text("Walk carefully! Don't trip over the air and die on the way!!")
+	await show_text("Walk carefully, don't trip and die on the way, you hear me!!")
 
 func show_text(full_text):
 	var typing_speed = typing_delay / 10

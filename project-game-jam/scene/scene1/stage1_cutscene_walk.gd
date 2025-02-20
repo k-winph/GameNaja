@@ -9,7 +9,13 @@ var speed = 0.3
 var can_move = true
 
 func _ready():
+	can_move = true
 	get_node("AnimatedSprite2D").play("Run")
+	await get_tree().create_timer(2.0).timeout
+	can_move = false
+	get_node("AnimatedSprite2D").play("Idle")
+	await get_tree().create_timer(3).timeout
+	can_move = true
 
 func setProgressRatio():
 	while progress_ratio <= 1.0:
