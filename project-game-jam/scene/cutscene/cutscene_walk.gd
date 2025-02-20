@@ -15,6 +15,8 @@ func _ready():
 	can_move = false
 	await get_tree().create_timer(2.75).timeout
 	can_move = true
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file("res://scene/scene1/stage1.tscn")
 
 func setProgressRatio():
 	while progress_ratio <= 1.0:

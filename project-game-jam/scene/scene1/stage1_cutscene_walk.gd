@@ -5,7 +5,7 @@ extends PathFollow2D
 @onready var path_2d: Path2D = $".."
 
 var ProgressRatio = 0.0
-var speed = 0.3
+var speed = 0.2
 var can_move = true
 
 func _ready():
@@ -16,6 +16,13 @@ func _ready():
 	get_node("AnimatedSprite2D").play("Idle")
 	await get_tree().create_timer(3).timeout
 	can_move = true
+	await get_tree().create_timer(1).timeout
+	can_move = false
+	get_node("AnimatedSprite2D").set_flip_h(false)
+	get_node("AnimatedSprite2D").play("Idle")
+	await get_tree().create_timer(2).timeout
+	can_move = true
+	get_node("AnimatedSprite2D").play("Run")
 
 func setProgressRatio():
 	while progress_ratio <= 1.0:
@@ -25,11 +32,11 @@ func _process(delta):
 	if can_move:
 		progress_ratio += delta * speed
 		if progress_ratio == 1 :
-			get_node("AnimatedSprite2D").play("Idle")
 			get_node("AnimatedSprite2D").set_flip_h(false)
-			await get_tree().create_timer(0.5).timeout
+			get_node("AnimatedSprite2D").play("Idle")
+			await get_tree().create_timer(1.5).timeout
 			path_follow_walk.visible = false
-		elif progress_ratio > 0.89:
+		elif progress_ratio > 0.54 and progress_ratio < 0.61 or progress_ratio >= 0.9 :
 			get_node("AnimatedSprite2D").play("StepBack")
 			get_node("AnimatedSprite2D").set_flip_h(true)
 		elif progress_ratio < 1:

@@ -317,9 +317,9 @@ b = Vector2(0, 0)
 
 [sub_resource type="Curve2D" id="Curve2D_gteas"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -32, 214, 0, 0, 0, 0, 31, 214, 0, 0, 0, 0, 102, 214, 0, 0, 0, 0, 87, 214)
+"points": PackedVector2Array(0, 0, 0, 0, -32, 214, 0, 0, 0, 0, 31, 214, 0, 0, 0, 0, 102, 214, 0, 0, 0, 0, 87, 214, 0, 0, 0, 0, 158, 214, 0, 0, 0, 0, 134, 214)
 }
-point_count = 4
+point_count = 6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s8vyl"]
 atlas = ExtResource("5_ityf0")
@@ -495,7 +495,7 @@ animations = [{
 
 [sub_resource type="Curve2D" id="Curve2D_cex4w"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 494, 169, 0, 0, 0, 0, 219, 169)
+"points": PackedVector2Array(0, 0, 0, 0, 494, 169, 0, 0, 0, 0, 267, 169)
 }
 point_count = 2
 
@@ -539,7 +539,7 @@ position = Vector2(432, 0)
 shape = SubResource("SegmentShape2D_itfjx")
 
 [node name="Player" parent="." instance=ExtResource("3_mpa8e")]
-position = Vector2(87, 176)
+position = Vector2(134, 176)
 
 [node name="PathWalk" type="Path2D" parent="."]
 position = Vector2(0, -22)
@@ -574,17 +574,6 @@ sprite_frames = SubResource("SpriteFrames_luopj")
 animation = &"Plant"
 autoplay = "Plant"
 
-[node name="text" type="Label" parent="."]
-offset_left = 77.0
-offset_top = 217.0
-offset_right = 117.0
-offset_bottom = 240.0
-scale = Vector2(0.7, 0.7)
-theme_override_fonts/font = ExtResource("9_37owa")
-
-[node name="text_audio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_agmr4")
-
 [node name="PathCarCrash" type="Path2D" parent="."]
 curve = SubResource("Curve2D_cex4w")
 
@@ -598,3 +587,14 @@ script = ExtResource("11_stco5")
 rotation = -3.14159
 sprite_frames = SubResource("SpriteFrames_dtafc")
 animation = &"car"
+
+[node name="text" type="Label" parent="."]
+offset_left = 77.0
+offset_top = 217.0
+offset_right = 117.0
+offset_bottom = 240.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("9_37owa")
+
+[node name="text_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_agmr4")

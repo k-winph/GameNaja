@@ -7,7 +7,7 @@ var speed = 5
 var can_move = false
 
 func _ready():
-	await get_tree().create_timer(6).timeout
+	await get_tree().create_timer(5.5).timeout
 	get_node("AnimatedSprite2D").play("Plant")
 	can_move = true
 

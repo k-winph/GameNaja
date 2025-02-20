@@ -195,9 +195,9 @@ b = Vector2(0, 0)
 
 [sub_resource type="Curve2D" id="Curve2D_6prrq"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -32, 214, 0, 0, 0, 0, 31, 214, 0, 0, 0, 0, 207, 214)
+"points": PackedVector2Array(0, 0, 0, 0, -32, 214, 0, 0, 0, 0, 31, 214, 0, 0, 0, 0, 207, 214, 0, 0, 0, 0, 269, 214)
 }
-point_count = 3
+point_count = 4
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsb5u"]
 atlas = ExtResource("5_vs4ne")
@@ -403,7 +403,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Bye",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -442,7 +442,7 @@ position = Vector2(433, 0)
 shape = SubResource("SegmentShape2D_vv358")
 
 [node name="PathWalk" type="Path2D" parent="."]
-position = Vector2(265, -38)
+position = Vector2(196, -38)
 curve = SubResource("Curve2D_6prrq")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="PathWalk"]
