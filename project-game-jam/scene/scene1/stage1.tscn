@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://scene/scene1/plant_fall.gd" id="7_607hh"]
 [ext_resource type="FontFile" uid="uid://bthw16h3u33di" path="res://assets/Born2bSportyFS.otf" id="9_37owa"]
 [ext_resource type="AudioStream" uid="uid://b46p2aivjgf03" path="res://assets/sound/medium-text-blip-14855.mp3" id="9_agmr4"]
+[ext_resource type="Texture2D" uid="uid://d3bligtkm8tgk" path="res://world_assets/bison.png" id="10_t3twf"]
 [ext_resource type="Script" path="res://scene/scene1/car_crash.gd" id="11_stco5"]
-[ext_resource type="Texture2D" uid="uid://bdn1jnwcdvtte" path="res://assets/Worldasset_zone0_city.png" id="12_gxnh2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6u7x8"]
 texture = ExtResource("2_oxsej")
@@ -495,19 +495,19 @@ animations = [{
 
 [sub_resource type="Curve2D" id="Curve2D_cex4w"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 494, 169, 0, 0, 0, 0, 267, 169)
+"points": PackedVector2Array(0, 0, 0, 0, 494, 169, 0, 0, 0, 0, 253, 169)
 }
 point_count = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2rqwu"]
-atlas = ExtResource("12_gxnh2")
-region = Rect2(0, 256, 120, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ptbn"]
+atlas = ExtResource("10_t3twf")
+region = Rect2(0, 0, 449, 324)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dtafc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2rqwu")
+"texture": SubResource("AtlasTexture_7ptbn")
 }],
 "loop": true,
 "name": &"car",
@@ -575,6 +575,7 @@ animation = &"Plant"
 autoplay = "Plant"
 
 [node name="PathCarCrash" type="Path2D" parent="."]
+position = Vector2(-25, 15)
 curve = SubResource("Curve2D_cex4w")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="PathCarCrash"]
@@ -585,13 +586,14 @@ script = ExtResource("11_stco5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathCarCrash/PathFollow2D"]
 rotation = -3.14159
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_dtafc")
 animation = &"car"
 
 [node name="text" type="Label" parent="."]
-offset_left = 77.0
+offset_left = 119.0
 offset_top = 217.0
-offset_right = 117.0
+offset_right = 159.0
 offset_bottom = 240.0
 scale = Vector2(0.7, 0.7)
 theme_override_fonts/font = ExtResource("9_37owa")

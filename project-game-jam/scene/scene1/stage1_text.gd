@@ -23,6 +23,14 @@ func _start():
 	await show_text("Whoa!!")
 	await get_tree().create_timer(0.5).timeout
 	text.text = ""
+	await get_tree().create_timer(2.5).timeout
+	text.position = Vector2(119, 217)
+	await show_text("Whoa!! Whoa! Whoa!!!")
+	await get_tree().create_timer(0.75).timeout
+	text.text = ""
+	await show_text("What happening!?!")
+	await get_tree().create_timer(1).timeout
+	text.text = ""
 
 func show_text(full_text):
 	var typing_speed = typing_delay / 10
