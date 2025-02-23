@@ -16,9 +16,10 @@ func setProgressRatio():
 		ProgressRatio = progress_ratio
  
 func _process(delta):
-	if can_move:
+	if can_move and Global.scene_count == 2:
 		progress_ratio += delta * speed
 		if progress_ratio < 1:
 			ProgressRatio = progress_ratio
 			get_node("AnimatedSprite2D").play("Plant")
-		
+	elif Global.scene_count > 2:
+		progress_ratio = 1

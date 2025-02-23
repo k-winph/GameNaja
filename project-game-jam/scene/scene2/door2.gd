@@ -18,5 +18,5 @@ func _on_body_exited(body):
 
 func _process(delta):
 	if player_in_area and Input.is_action_just_pressed("interact"):
-		print("Event Triggered!")  
-		get_tree().change_scene_to_file("res://scene/cutscene/cutscene.tscn")
+		print("Event Triggered!")
+		get_tree().change_scene_to_file("res://scene/scene1/stage1.tscn")

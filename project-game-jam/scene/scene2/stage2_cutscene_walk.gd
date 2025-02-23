@@ -1,22 +1,21 @@
 extends PathFollow2D
 
 @onready var path_2d: Path2D = $".."
+@onready var player: CharacterBody2D = $"../../Player"
 
 var ProgressRatio = 0.0
-var speed = 0.25
-var can_move = false
+var speed = 0.7
+var can_move = true
 
 func _ready():
-	get_node("AnimatedSprite2D").play("Idle")
-	get_node("AnimatedSprite2D").set_flip_h(true)
+	if Global.scene_count == 2:
+		Global.scene_count = 3
+	Global.increment_scene_count()
+	print("Current Scene Count: ", Global.scene_count)
+	player.visible = false
+	get_node("AnimatedSprite2D").play("Run")
+	get_node("AnimatedSprite2D").set_flip_h(false)
 	await get_tree().create_timer(1.0).timeout
-	can_move = true
-	await get_tree().create_timer(1.0).timeout
-	can_move = false
-	await get_tree().create_timer(2.75).timeout
-	can_move = true
-	await get_tree().create_timer(2.0).timeout
-	get_tree().change_scene_to_file("res://scene/scene1/stage1.tscn")
 
 func setProgressRatio():
 	while progress_ratio <= 1.0:
@@ -30,7 +29,11 @@ func _process(delta):
 			get_node("AnimatedSprite2D").play("Run")
 			get_node("AnimatedSprite2D").set_flip_h(false)
 		elif progress_ratio == 1 :
+			get_node("AnimatedSprite2D").play("Idle")
+			await get_tree().create_timer(1).timeout
+			player.visible = true
 			path_2d.visible = false
+			
 	else:
 		get_node("AnimatedSprite2D").play("Idle")
 		

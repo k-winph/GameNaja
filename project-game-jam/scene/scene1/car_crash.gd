@@ -9,7 +9,6 @@ var can_move = false
 
 func _ready():
 	await get_tree().create_timer(9.5).timeout
-	get_node("AnimatedSprite2D").play("car")
 	can_move = true
 
 func setProgressRatio():
@@ -17,9 +16,10 @@ func setProgressRatio():
 		ProgressRatio = progress_ratio
  
 func _process(delta):
-	if can_move:
-		progress_ratio += delta * speed
-		if progress_ratio < 1:
-			ProgressRatio = progress_ratio
-			get_node("AnimatedSprite2D").play("car")
-		
+	if can_move and Global.scene_count == 2:
+		if can_move:
+			progress_ratio += delta * speed
+			if progress_ratio < 1:
+				ProgressRatio = progress_ratio
+	elif Global.scene_count > 2:
+		progress_ratio = 1

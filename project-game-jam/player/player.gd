@@ -1,29 +1,43 @@
 extends CharacterBody2D
 
 @onready var player: CharacterBody2D = $"."
-@onready var path_follow_walk: PathFollow2D = $"../PathWalk/PathFollowWalk"
-
+@onready var path_follow_walk1: PathFollow2D = $"../PathWalk/PathFollowWalk1"
 
 var CanMove = false
 var ProgressRatio:float = 0.0
 const SPEED = 150.0
-const JUMP_VELOCITY = -250.0
+var JUMP_VELOCITY = -250.0
+
+func _ready():
+	player.visible = false
+	await get_tree().create_timer(0.25).timeout
+	if Global.scene_count == 2:
+		CanMove = false
+	elif Global.scene_count >= 3:
+		player.position = Vector2(21, 176)
+		await get_tree().create_timer(2).timeout
+		player.visible = true
+		await get_tree().create_timer(1).timeout
+		CanMove = true
+		
 
 func _process(delta):
-	if path_follow_walk != null:
-		ProgressRatio = path_follow_walk.ProgressRatio 
-		
-	wait_until_cutscene_complete()
+	if Global.scene_count <= 2:
+		if path_follow_walk1 != null:
+			ProgressRatio = path_follow_walk1.ProgressRatio 
+			
+		wait_until_cutscene_complete()
 
 func wait_until_cutscene_complete():
-	if ProgressRatio > 0.88:
-		await get_tree().create_timer(2.0).timeout
-		player.visible = true
-		await get_tree().create_timer(0.5).timeout
-		CanMove = true
-	else:
-		CanMove = false
-		player.visible = false
+	if Global.scene_count <= 2:
+		if ProgressRatio > 0.88:
+			await get_tree().create_timer(2.0).timeout
+			player.visible = true
+			await get_tree().create_timer(0.5).timeout
+			CanMove = true
+		else:
+			CanMove = false
+			player.visible = false
 	
 
 func wait_until_progress_complete():
@@ -38,7 +52,10 @@ func _physics_process(delta: float) -> void:
 	#movement
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		if Global.scene_count == 3:
+			velocity.y = -300
+		else:
+			velocity.y = JUMP_VELOCITY
 	
 	var direction := Input.get_axis("move_left", "move_right")
 	if CanMove == true:
