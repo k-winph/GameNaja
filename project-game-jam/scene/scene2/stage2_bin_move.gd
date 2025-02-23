@@ -22,7 +22,6 @@ func _process(delta):
 	if stage2_bin_area != null and stage2_bin_area2 != null:
 		if progress_ratio == 1:
 			await get_tree().create_timer(0.5).timeout
-			print("hide")
 			path_follow_2d.visible = false
 			area_2d.visible = false
 		elif stage2_bin_area.move_1 and progress_ratio < 0.64:

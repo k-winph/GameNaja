@@ -11,9 +11,9 @@ var JUMP_VELOCITY = -250.0
 func _ready():
 	player.visible = false
 	await get_tree().create_timer(0.25).timeout
-	if Global.scene_count == 2:
+	if Global.scene_count == 1:
 		CanMove = false
-	elif Global.scene_count >= 3:
+	elif Global.scene_count >= 2:
 		player.position = Vector2(21, 176)
 		await get_tree().create_timer(2).timeout
 		player.visible = true
@@ -22,14 +22,14 @@ func _ready():
 		
 
 func _process(delta):
-	if Global.scene_count <= 2:
+	if Global.scene_count <= 1:
 		if path_follow_walk1 != null:
 			ProgressRatio = path_follow_walk1.ProgressRatio 
 			
 		wait_until_cutscene_complete()
 
 func wait_until_cutscene_complete():
-	if Global.scene_count <= 2:
+	if Global.scene_count <= 1:
 		if ProgressRatio > 0.88:
 			await get_tree().create_timer(2.0).timeout
 			player.visible = true
@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	#movement
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		if Global.scene_count == 3:
+		if Global.scene_count == 2:
 			velocity.y = -300
 		else:
 			velocity.y = JUMP_VELOCITY

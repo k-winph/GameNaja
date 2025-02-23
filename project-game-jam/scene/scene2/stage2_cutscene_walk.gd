@@ -8,8 +8,8 @@ var speed = 0.7
 var can_move = true
 
 func _ready():
-	if Global.scene_count == 2:
-		Global.scene_count = 3
+	if Global.scene_count == 1:
+		Global.scene_count = 2
 	Global.increment_scene_count()
 	print("Current Scene Count: ", Global.scene_count)
 	player.visible = false

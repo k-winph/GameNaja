@@ -10,7 +10,7 @@ func _ready():
 	_start()
 
 func _start():
-	if Global.scene_count == 2:
+	if Global.scene_count == 1:
 		text.text = "" 
 		text.position = Vector2(43, 217)
 		await show_text("What’s the big deal, Granny? It’s just walking to school!")
@@ -33,7 +33,7 @@ func _start():
 		await get_tree().create_timer(1).timeout
 		text.text = ""
 		await get_tree().create_timer(1).timeout
-		text.position = Vector2(336, 217)
+		text.position = Vector2(300, 217)
 		await show_text("[A],[D] to Move")
 		await get_tree().create_timer(2).timeout
 		text.text = ""
@@ -43,7 +43,7 @@ func _start():
 		await show_text("[E] to Interact")
 		await get_tree().create_timer(2).timeout
 		text.text = ""
-	elif Global.scene_count > 2:
+	elif Global.scene_count > 1:
 		text.text = "" 
 		text.position = Vector2(43, 217)
 		await show_text("Ah sh*t!, here we go again.")

@@ -10,14 +10,14 @@ var speed = 0.2
 var can_move = true
 
 func _ready():
-	if Global.scene_count == 1:
-		Global.scene_count = 2
+	if Global.scene_count == 0:
+		Global.scene_count = 1
 	#elif Global.scene_count > 2:
 	#	player.visible = true
 	
 	Global.increment_scene_count()
 	print("Current Scene Count: ", Global.scene_count)
-	if Global.scene_count == 2:
+	if Global.scene_count == 1:
 		can_move = true
 		get_node("AnimatedSprite2D").play("Run")
 		await get_tree().create_timer(2.0).timeout
@@ -32,7 +32,7 @@ func _ready():
 		await get_tree().create_timer(2).timeout
 		can_move = true
 		get_node("AnimatedSprite2D").play("Run")
-	elif Global.scene_count >= 3:
+	elif Global.scene_count >= 2:
 		can_move = true
 		get_node("AnimatedSprite2D").play("Run")
 		get_node("AnimatedSprite2D").set_flip_h(false)
@@ -44,7 +44,7 @@ func setProgressRatio():
 		ProgressRatio = progress_ratio
  
 func _process(delta):
-	if Global.scene_count == 2:
+	if Global.scene_count == 1:
 		if can_move:
 			progress_ratio += delta * speed
 			if progress_ratio == 1 :
@@ -59,7 +59,7 @@ func _process(delta):
 				ProgressRatio = progress_ratio
 				get_node("AnimatedSprite2D").play("Run")
 				get_node("AnimatedSprite2D").set_flip_h(false)
-	if Global.scene_count >= 3:
+	if Global.scene_count >= 2:
 		if can_move:
 			if progress_ratio < 0.216:
 				progress_ratio += delta * speed
