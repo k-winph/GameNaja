@@ -17,4 +17,3 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(1).timeout
 		if bin != null:
 			bin.visible = true
-			print("hide")

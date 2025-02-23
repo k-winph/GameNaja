@@ -32,6 +32,17 @@ func _start():
 		await show_text("What happening!?!")
 		await get_tree().create_timer(1).timeout
 		text.text = ""
+		await get_tree().create_timer(1).timeout
+		text.position = Vector2(336, 217)
+		await show_text("[A],[D] to Move")
+		await get_tree().create_timer(2).timeout
+		text.text = ""
+		await show_text("[W] or [Space] to Jump")
+		await get_tree().create_timer(2).timeout
+		text.text = ""
+		await show_text("[E] to Interact")
+		await get_tree().create_timer(2).timeout
+		text.text = ""
 	elif Global.scene_count > 2:
 		text.text = "" 
 		text.position = Vector2(43, 217)

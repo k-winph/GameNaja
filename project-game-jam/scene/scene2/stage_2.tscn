@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://scene/scene2/after_bin.gd" id="14_wktpy"]
 [ext_resource type="Script" path="res://scene/scene2/door2.gd" id="15_0440x"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xhwyi"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ffor"]
 texture = ExtResource("2_cywxq")
 16:0/0 = 0
 17:0/0 = 0
@@ -134,7 +134,7 @@ texture = ExtResource("2_cywxq")
 15:8/0 = 0
 16:8/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yptom"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5aic"]
 texture = ExtResource("3_xe70i")
 3:0/0 = 0
 4:0/0 = 0
@@ -309,7 +309,7 @@ texture = ExtResource("3_xe70i")
 22:11/0 = 0
 23:11/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g8ii2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_plhqp"]
 texture = ExtResource("4_u4nds")
 0:0/0 = 0
 1:0/0 = 0
@@ -409,9 +409,9 @@ texture = ExtResource("4_u4nds")
 
 [sub_resource type="TileSet" id="TileSet_4tdvs"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_yptom")
-sources/0 = SubResource("TileSetAtlasSource_xhwyi")
-sources/2 = SubResource("TileSetAtlasSource_g8ii2")
+sources/1 = SubResource("TileSetAtlasSource_y5aic")
+sources/0 = SubResource("TileSetAtlasSource_7ffor")
+sources/2 = SubResource("TileSetAtlasSource_plhqp")
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ksiyg"]
 a = Vector2(0, 272)
@@ -530,6 +530,7 @@ script = ExtResource("1_2fc4l")
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_6sta5")
+metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="map"]
 tile_set = SubResource("TileSet_4tdvs")
